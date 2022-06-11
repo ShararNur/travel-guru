@@ -1,0 +1,22 @@
+.search-field {
+  padding: 0 10px 0 53px;
+  height: 44px;
+  width: 370px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 5px;
+  color: white;
+}
+
+::placeholder {
+  color: white;
+  opacity: 1;
+}
+
+.icon {
+  position: absolute;
+  color: white;
+  height: 24px;
+  margin: 12px 20px 10px 18px;
+}

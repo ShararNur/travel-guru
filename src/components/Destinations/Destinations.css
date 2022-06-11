@@ -1,0 +1,35 @@
+.place-section {
+  width: 100%;
+}
+.place-info {
+  width: 49%;
+}
+.place-pic {
+  width: 50%;
+}
+
+.font-link {
+  font-family: 'Bebas Neue', cursive;
+}
+
+.place-info h1 {
+  font-size: 97.6842px;
+}
+
+.btn-font {
+  font-weight: 500 !important;
+}
+
+/* Bottom left text */
+.bottom-left {
+  position: absolute;
+  font-size: 36px;
+  bottom: 18px;
+  left: 18px;
+  color: #ffffff;
+}
+
+.scroller {
+  cursor: pointer;
+  background-color: white;
+}
