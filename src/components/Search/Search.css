@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+section {
+    padding-inline: 5rem;
+}
+
+.hotel-pic {
+    width: 270px;
+    height: 188px;
+} 
+
+.hotel-info h5 {
+    font-size: 18px;
+}
+
+
+.rating-icon {
+    height: 15.58px;
+    width: 16.54px;
+}
+
+.txt-ash {
+    color: #6A6A6A;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+.fw-500{
+    font-weight: 500;
+}
+
+.txt-light-ash{
+    color: #898989;
+}
+
+.word-spacing {
+    word-spacing:5px
+}
+
