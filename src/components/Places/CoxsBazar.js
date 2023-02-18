@@ -1,6 +1,7 @@
 import React from 'react';
 
 const CoxsBazar = () => {
+
     return (
         <div className="main">
             <div className="dark-overlay">
@@ -26,12 +27,12 @@ const CoxsBazar = () => {
                                 </div>
                                 <div className="mb-3 d-flex justify-content-between">
                                     {/* <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label> */}
+                                    <label htmlFor="fromDate" className="form-label">From</label>
                                     <div className="datePicker">
-                                        <label htmlFor="fromDate" className="form-label">From</label>
                                         <input type="date" className="form-control" id="fromDate" />
                                     </div>
                                     <div className="datePicker">
-                                        <label htmlFor="toDate" className="form-label">From</label>
+                                        <label htmlFor="toDate" className="form-label">To</label>
                                         <input type="date" className="form-control" id="toDate" />
                                     </div>
                                 </div>

@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from './components/Header/Header';
 import Search from './components/Search/Search';
 import CoxsBazar from './components/Places/CoxsBazar';
+import Booking from './components/Booking/Booking';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/search" element={<Search />} />
-        <Route path="/cox's-bazar" element={<CoxsBazar />} />
+        <Route path="/booking" element={<Booking />} />
       </Routes>
     </div>
   );

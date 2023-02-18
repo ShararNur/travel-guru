@@ -3,10 +3,23 @@ import './Login.css';
 import { FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { initializeApp } from 'firebase/app';
+
 
 const Login = () => {
-    const [newUser, setNewUser] = useState(false)
+    const [newUser, setNewUser] = useState(false);
+    const firebaseConfig = {
+
+        apiKey: "AIzaSyCPKpGjjXA8Jo3DS3K11JGp1Sf2OXgGNkM",
+        authDomain: "travel-guru-6feb4.firebaseapp.com",
+        projectId: "travel-guru-6feb4",
+        storageBucket: "travel-guru-6feb4.appspot.com",
+        messagingSenderId: "334205359796",
+        appId: "1:334205359796:web:12a8ff2c864b46eb5029e1"
+        //...
+    };
+    const app = initializeApp(firebaseConfig);
+
     return (
         <div className="login-module">
             <form action="#">
