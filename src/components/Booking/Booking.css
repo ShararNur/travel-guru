@@ -34,4 +34,13 @@
     width: 48%;
 }
 
+.booking-panel span {
+    color: #bf1650;
+  }
+  
+  .booking-panel span::before {
+    display: inline;
+    content: "⚠ ";
+}
+
 

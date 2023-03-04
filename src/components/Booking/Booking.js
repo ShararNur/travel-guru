@@ -1,12 +1,16 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './Booking.css';
+import { useForm } from "react-hook-form";
+
 
 
 
 const Booking = () => {
 
     const { state } = useLocation();
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const navigate = useNavigate();
 
     const renderPlaceInfo = () => {
         if (state?.from === "Cox's Bazar") {
@@ -29,8 +33,10 @@ const Booking = () => {
         }
     }
 
-    const onSubmit = (e) => {
-        e.preventDefault();
+    const onSubmit = (data) => {
+        if (data !== undefined) {
+            navigate('/search')
+        }
 
     }
 
@@ -47,28 +53,31 @@ const Booking = () => {
                     </div>
 
                     <div className="d-flex justify-content-center">
-                        <form className="booking-panel bg-white d-flex flex-column p-4 ">
+                        <form className="booking-panel bg-white d-flex flex-column p-4">
                             <div className="mb-3">
-                                <label htmlFor="exampleInputEmail1" className="form-label">Origin</label>
-                                <input type="email" className="form-control fw-bold" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                <label htmlFor="origin" className="form-label">Origin</label>
+                                <input type="text" {...register("origin", { required: true })} className="form-control fw-bold" id="origin" aria-describedby="origin" />
                                 {/* <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div> */}
+                                {errors.origin && <span>This field is required</span>}
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="exampleInputPassword1" className="form-label">Destination</label>
-                                <input type="text" className="form-control fw-bold" id="exampleInputPassword1" value={state?.from} autoComplete="off" />
+                                <label htmlFor="destination" className="form-label">Destination</label>
+                                <input type="text" {...register("destination", { required: true })} className="form-control fw-bold" id="destination" value={state?.from} autoComplete="off" />
                             </div>
                             <div className="mb-3 d-flex justify-content-between">
                                 {/* <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label> */}
                                 <div className="datePicker">
                                     <label htmlFor="fromDate" className="form-label">From</label>
-                                    <input type="date" className="form-control fw-bold" id="fromDate" />
+                                    <input type="date" {...register("fromDate", { required: true })} className="form-control fw-bold" id="fromDate" />
+                                    {errors.fromDate && <span>This field is required</span>}
                                 </div>
                                 <div className="datePicker">
                                     <label htmlFor="toDate" className="form-label">To</label>
-                                    <input type="date" className="form-control fw-bold" id="toDate" />
+                                    <input type="date" {...register("toDate", { required: true })} className="form-control fw-bold" id="toDate" />
+                                    {errors.toDate && <span>This field is required</span>}
                                 </div>
                             </div>
-                            <button type="submit" className="btn" onClick={() => onSubmit()}>Start Booking</button>
+                            <button type="submit" className="btn" onClick={handleSubmit(onSubmit)}>Start Booking</button>
                         </form>
                     </div>
                 </div>
