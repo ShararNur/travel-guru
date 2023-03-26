@@ -9,33 +9,36 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPass, initializeLoginFramework, signInWithEmailAndPass } from './loginManager';
 import { UserContext } from '../../App';
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 const Login = () => {
-    const [newUser, setNewUser] = useState(false);
-    const navigate = useNavigate();
+    const [newUser, setNewUser] = useState('');
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    let location = useLocation();
-    let from = location.state?.from?.pathname || "/";
 
-    console.log(location);
 
     const [user, setUser] = useState({
         isSignedIn: false,
-        name: "",
-        email: "",
-        password: "",
-        photo: "",
+        name: '',
+        email: '',
+        password: '',
+        photo: '',
     })
+
+    const navigate = useNavigate();
+    let location = useLocation();
+    const { from } = location.state || { from: { pathname: "/" } };
+    // console.log(location);
+
 
     initializeLoginFramework();
 
     const handleChange = (evt) => {
         const value = evt.target.value;
         setUser({ ...user, [evt.target.name]: value })
+        // console.log(user);
     }
-
 
     const handleSubmit = (evt) => {
 
@@ -52,8 +55,15 @@ const Login = () => {
         if (!newUser && user.email && user.password) {
             signInWithEmailAndPass(user.email, user.password)
                 .then(res => {
-                    toast.error("email and password did not match!")
                     console.log(res);
+
+                    if (res?.error) {
+                        toast.error(res.error)
+                        return;
+                    }
+
+                    // navigate("/search");
+
 
                     // setUser(res);
                     // setLoggedInUser(res);
@@ -79,9 +89,9 @@ const Login = () => {
             <ToastContainer />
             <form onSubmit={handleSubmit}>
                 <div className="login-box">
-                    {newUser ? <h4 className="fw-bold">Create an account</h4> : <h4 className="fw-bold">Login</h4>}
-                    {newUser &&
+                    {newUser ?
                         <>
+                            <h4 className="fw-bold">Create an account</h4>
                             <div className="input-field">
                                 <input type="text" className="form-control" id="firstName" placeholder="First Name" />
                             </div>
@@ -89,7 +99,8 @@ const Login = () => {
                                 <input type="text" className="form-control" placeholder="Last Name" id="exampleInputLastName" />
                             </div>
                         </>
-                    }
+                        : <h4 className="fw-bold">Login</h4>}
+
                     <div className="input-field">
                         <input type="email" className="form-control" id="email" name="email" value={user.email} onChange={handleChange} placeholder="Username or Email" />
                     </div>
@@ -103,7 +114,8 @@ const Login = () => {
                         </div>
 
                     }
-                    {newUser === false &&
+                    {newUser ? ''
+                        :
                         <div className="form-check mb-5 d-flex justify-content-between">
                             <div>
                                 <input type="checkbox" className="form-check-input" id="exampleCheck1" />
@@ -122,7 +134,7 @@ const Login = () => {
                             : <p className="m-0">Don't have an account? <a href="#" onClick={() => setNewUser(true)}>Create an account</a></p>}
                     </div>
                 </div>
-            </form>
+            </form >
 
             <p className="or my-4" ><span className="or-span">Or</span></p>
 
@@ -136,7 +148,7 @@ const Login = () => {
                     <span className="ms-6"> Continue with Google</span>
                 </div>
             </div>
-        </div >
+        </div>
     );
 };
 

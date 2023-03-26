@@ -4,7 +4,7 @@ import logo from '../../resources/logo_white.png';
 import logo2 from '../../resources/Logo.png';
 import './Header.css';
 import searchIcon from './../../resources/Icon/search.svg'
-import { Link, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { UserContext } from '../../App';
 
 
@@ -18,7 +18,7 @@ const Header = () => {
     return (
         <Navbar collapseOnSelect expand="lg" variant="dark" className="navbar">
             <Container className="mt-4 ">
-                <Navbar.Brand href="/">{location.pathname === "/" ? <img
+                <NavLink to="/">{location.pathname === "/" ? <img
                     src={logo}
                     width="auto"
                     height="56"
@@ -30,7 +30,7 @@ const Header = () => {
                     height="56"
                     className="d-inline-block align-top"
                     alt="React Bootstrap logo"
-                />}</Navbar.Brand>
+                />}</NavLink>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     {location.pathname === "/" &&
