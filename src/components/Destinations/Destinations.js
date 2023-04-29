@@ -13,9 +13,9 @@ import CoxsBazar from '../Places/CoxsBazar';
 
 const Destinations = () => {
     return (
-        <div className="place-section d-md-flex pt-5">
+        <div className="place-section d-md-flex justify-content-center pt-5 flex-wrap ">
             <div className="place-info">
-                <div style={{ marginLeft: '135px' }} >
+                <div style={{ marginLeft: '121px' }} >
                     <h1 className="text-white font-link">COX'S BAZAR</h1>
                     <p className="text-white mb-4">Cox's Bazar is a city, fishing port, tourism centre and <br /> district headquarters in southeastern Bangladesh. It is <br />famous mostly for its long natural sandy beach and it...</p>
                     <button type="button" className="btn px-4">Booking<FontAwesomeIcon icon={faArrowRight} className="ms-2" /></button>
@@ -23,7 +23,7 @@ const Destinations = () => {
             </div>
 
             <div className="place-pic ">
-                <div className="row row-cols-1 row-cols-md-3 g-4 ">
+                <div className="row row-cols-1 row-cols-md-3 g-4 me-0">
                     <div className="col">
                         <Link to="/booking" state={{ from: "Cox's Bazar" }} className="card h-100">
                             <img src={sajek} className="card-img-top h-100 w-100" alt="..." />
@@ -43,10 +43,10 @@ const Destinations = () => {
                         </Link>
                     </div>
                 </div>
-                <div className="mt-5 pt-4">
-                    <button className="rounded-circle me-2 scroller"><FontAwesomeIcon icon={faAngleLeft} /></button>
-                    <button className="rounded-circle scroller"><FontAwesomeIcon icon={faAngleRight} /></button>
-                </div>
+            </div>
+            <div className="mt-5 pt-4 ">
+                <button className="rounded-circle me-2 scroller"><FontAwesomeIcon icon={faAngleLeft} /></button>
+                <button className="rounded-circle scroller"><FontAwesomeIcon icon={faAngleRight} /></button>
             </div>
         </div>
     );

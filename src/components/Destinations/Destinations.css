@@ -1,13 +1,11 @@
 .place-section {
-  width: 100%;
-  position: absolute;
-  top: 150px;
+  width: 100vw;
 }
 .place-info {
-  width: 49%;
+  width: 50%;
 }
 .place-pic {
-  width: 50%;
+  width: 50% ;
 }
 
 .font-link {

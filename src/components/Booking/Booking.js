@@ -42,45 +42,41 @@ const Booking = () => {
 
 
     return (
-        <div className="main">
-            <div className="dark-overlay">
-                <div className="booking d-md-flex pt-5">
-                    <div className="place-info">
-                        <div style={{ maxWidth: '505px' }} >
-                            <h1 className="text-white font-link text-uppercase">{state?.from}</h1>
-                            <p className="text-white mb-4">{renderPlaceInfo()}</p>
+        <div className="booking d-md-flex pt-5">
+            <div className="place-info">
+                <div style={{ maxWidth: '505px' }} >
+                    <h1 className="text-white font-link text-uppercase">{state?.from}</h1>
+                    <p className="text-white mb-4">{renderPlaceInfo()}</p>
+                </div>
+            </div>
+
+            <div className="d-flex justify-content-center">
+                <form className="booking-panel bg-white d-flex flex-column p-4">
+                    <div className="mb-3">
+                        <label htmlFor="origin" className="form-label">Origin</label>
+                        <input type="text" {...register("origin", { required: true })} className="form-control fw-bold" id="origin" aria-describedby="origin" />
+                        {/* <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div> */}
+                        {errors.origin && <span>This field is required</span>}
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="destination" className="form-label">Destination</label>
+                        <input type="text" {...register("destination", { required: true })} className="form-control fw-bold" id="destination" value={state?.from} autoComplete="off" />
+                    </div>
+                    <div className="mb-3 d-flex justify-content-between">
+                        {/* <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label> */}
+                        <div className="datePicker">
+                            <label htmlFor="fromDate" className="form-label">From</label>
+                            <input type="date" {...register("fromDate", { required: true })} className="form-control fw-bold" id="fromDate" />
+                            {errors.fromDate && <span>This field is required</span>}
+                        </div>
+                        <div className="datePicker">
+                            <label htmlFor="toDate" className="form-label">To</label>
+                            <input type="date" {...register("toDate", { required: true })} className="form-control fw-bold" id="toDate" />
+                            {errors.toDate && <span>This field is required</span>}
                         </div>
                     </div>
-
-                    <div className="d-flex justify-content-center">
-                        <form className="booking-panel bg-white d-flex flex-column p-4">
-                            <div className="mb-3">
-                                <label htmlFor="origin" className="form-label">Origin</label>
-                                <input type="text" {...register("origin", { required: true })} className="form-control fw-bold" id="origin" aria-describedby="origin" />
-                                {/* <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div> */}
-                                {errors.origin && <span>This field is required</span>}
-                            </div>
-                            <div className="mb-3">
-                                <label htmlFor="destination" className="form-label">Destination</label>
-                                <input type="text" {...register("destination", { required: true })} className="form-control fw-bold" id="destination" value={state?.from} autoComplete="off" />
-                            </div>
-                            <div className="mb-3 d-flex justify-content-between">
-                                {/* <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label> */}
-                                <div className="datePicker">
-                                    <label htmlFor="fromDate" className="form-label">From</label>
-                                    <input type="date" {...register("fromDate", { required: true })} className="form-control fw-bold" id="fromDate" />
-                                    {errors.fromDate && <span>This field is required</span>}
-                                </div>
-                                <div className="datePicker">
-                                    <label htmlFor="toDate" className="form-label">To</label>
-                                    <input type="date" {...register("toDate", { required: true })} className="form-control fw-bold" id="toDate" />
-                                    {errors.toDate && <span>This field is required</span>}
-                                </div>
-                            </div>
-                            <button type="submit" className="btn" onClick={handleSubmit(onSubmit)}>Start Booking</button>
-                        </form>
-                    </div>
-                </div>
+                    <button type="submit" className="btn" onClick={handleSubmit(onSubmit)}>Start Booking</button>
+                </form>
             </div>
         </div>
     );
