@@ -5,13 +5,18 @@ import hotelTwo from '../../resources/Image/Rectangle 27.png';
 import hotelThree from '../../resources/Image/Rectangle 28.png';
 import googleMap from '../../resources/Image/map.png';
 import star from '../../resources/Icon/star_1_.png'
+import { useParams } from 'react-router-dom';
 
 const Search = () => {
+    const params = useParams();
+
+    console.log(params);
+
     return (
         <section className="d-flex border-primary justify-content-around align-items-center">
             <div className="hotels w-50">
                 <p>252 stays Apr 13-17 3 guests</p>
-                <h4 className="fw-bold">Stay in Cox’s Bazar</h4>
+                <h4 className="fw-bold">Stay in {params?.place}</h4>
                 <div className="d-flex hotel-info align-items-center mb-5">
                     <img src={hotelOne} alt="hotel_one" className="hotel-pic me-4" />
                     <div>

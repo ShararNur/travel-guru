@@ -23,7 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/search" element={<PrivateRoute redirectTo="/login"><Search /> </PrivateRoute>} />
+          <Route path="/search/:place" element={<PrivateRoute redirectTo="/login"><Search /> </PrivateRoute>} />
           <Route path="/booking" element={<Booking />} />
         </Routes>
       </div>

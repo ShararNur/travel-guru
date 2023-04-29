@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { createSearchParams, useLocation, useNavigate, useParams } from 'react-router-dom';
 import './Booking.css';
 import { useForm } from "react-hook-form";
 
@@ -8,16 +8,18 @@ import { useForm } from "react-hook-form";
 
 const Booking = () => {
 
+
     const { state } = useLocation();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
 
+    console.log(state);
+
+
     const renderPlaceInfo = () => {
         if (state?.from === "Cox's Bazar") {
             return (
-
                 "Cox’s Bazar is a town on the southeast coast of Bangladesh. It’s known for its very long, sandy beachfront, stretching from Sea Beach in the north to Kolatoli Beach in the south. Aggameda Khyang monastery is home to bronze statues and centuries-old Buddhist manuscripts. South of town, the tropical rainforest of Himchari National Park has waterfalls and many birds. North, sea turtles breed on nearby Sonadia Island. "
-
             )
         }
         else if (state?.from === "Sreemangal") {
@@ -34,9 +36,10 @@ const Booking = () => {
     }
 
     const onSubmit = (data) => {
+
         if (data !== undefined) {
-            navigate('/search')
-        }
+            navigate(`/search/${state?.from}`);
+        };
 
     }
 

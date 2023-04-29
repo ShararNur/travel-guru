@@ -15,7 +15,7 @@ const Header = () => {
     return (
         <Container style={{ paddingInline: '61px' }}>
             <Navbar expand="lg" className="pt-4 text-primary ">
-                <Navbar.Brand as={Link} to="/">
+                <Navbar.Brand as={Link} to="/" style={{ marginRight: '80px' }}>
                     <img
                         src={logo}
                         width="auto"
@@ -37,7 +37,7 @@ const Header = () => {
                         </div>
                     </Nav> */}
                     {(location.pathname === '/' || location.pathname.includes("/booking")) &&
-                        <Form inline className="m-auto navBarSearchForm pl-3">
+                        <Form className="m-auto navBarSearchForm pl-3">
                             <div className="d-flex align-items-center">
                                 <img src={searchIcon} alt="search icon" className='icon' />
                                 <input type="search" placeholder="Search your Destination..." className="mr-sm-2 search-input" />
