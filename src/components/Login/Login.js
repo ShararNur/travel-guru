@@ -136,7 +136,7 @@ const Login = () => {
                             : <p className="m-0">Don't have an account? <a href="#" onClick={() => setNewUser(true)}>Create an account</a></p>}
                     </div>
                 </div>
-            </form >
+            </form>
 
             <p className="or my-4" ><span className="or-span">Or</span></p>
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Search.css'
 import hotelOne from '../../resources/Image/Rectangle 26.png';
 import hotelTwo from '../../resources/Image/Rectangle 27.png';
@@ -6,14 +6,42 @@ import hotelThree from '../../resources/Image/Rectangle 28.png';
 import googleMap from '../../resources/Image/map.png';
 import star from '../../resources/Icon/star_1_.png'
 import { useParams } from 'react-router-dom';
+import MapSection from '../Map/Map';
 
 const Search = () => {
     const params = useParams();
 
     console.log(params);
 
+    const destinationLatLng = () => {
+        if (params?.place === "Cox's Bazar") {
+            return ({
+                lat: 21.4648,
+                lng: 91.9472,
+            })
+        }
+        else if (params?.place === "Sreemangal") {
+            return ({
+                lat: 24.3065,
+                lng: 91.7296,
+            })
+        }
+
+        else if (params?.place === "Sundarbans") {
+            return ({
+                lat: 22.297312792008462,
+                lng: 89.56769092441222,
+            })
+        }
+
+    }
+
+    useEffect(() => {
+        console.log(destinationLatLng());
+    }, [])
+
     return (
-        <section className="d-flex border-primary justify-content-around align-items-center">
+        <section className="d-flex border-primary justify-content-around ">
             <div className="hotels w-50">
                 <p>252 stays Apr 13-17 3 guests</p>
                 <h4 className="fw-bold">Stay in {params?.place}</h4>
@@ -67,8 +95,8 @@ const Search = () => {
                 </div>
             </div>
 
-            <div className="map ">
-                <img src={googleMap} alt="google map of the destination" />
+            <div className="map">
+                <MapSection location={destinationLatLng()} zoomLevel={12} className="abx" />
             </div>
         </section>
     );

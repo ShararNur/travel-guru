@@ -55,10 +55,10 @@ const Header = () => {
                                 ?
                                 <>
                                     {/* <p style={{ display: 'inline', color: 'red', marginRight: '15px' }}>Welcome {loggedInUser.displayName}</p> */}
-                                    <Link to="#" className="login-btn" onClick={() => setLoggedInUser({})}>Log out</Link>
+                                    <Nav.Link to="#" className="login-btn" onClick={() => setLoggedInUser({})}>Log out</Nav.Link>
                                 </>
                                 :
-                                <Link to="/login" className="login-btn ">Login</Link>
+                                <Nav.Link as={Link} to="/login" className="login-btn">Login</Nav.Link>
                         }
                     </Nav>
                 </Navbar.Collapse>

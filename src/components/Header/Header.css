@@ -61,7 +61,7 @@
 /* Login button */
 
 .login-btn {
-  padding: 12px 29px;
+  padding: 12px 29px !important;
   text-decoration:none;
   border-radius:5px;
   font-weight: 500;
