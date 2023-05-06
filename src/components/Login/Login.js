@@ -10,6 +10,7 @@ import { createUserWithEmailAndPass, initializeLoginFramework, signInWithEmailAn
 import { UserContext } from '../../App';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import FormInput from '../FormInput/FormInput';
 
 
 
@@ -20,10 +21,11 @@ const Login = () => {
 
     const [user, setUser] = useState({
         isSignedIn: false,
-        name: '',
+        firstName: '',
+        lastName: '',
         email: '',
         password: '',
-        photo: '',
+        confirmPassword: '',
     })
 
     const navigate = useNavigate();
@@ -42,7 +44,28 @@ const Login = () => {
         // console.log(user);
     }
 
+    // const handleBlur = (evt) => {
+    //     let isFieldValid = true;
+    //     if (evt.target.name === "email") {
+    //         isFieldValid = /\S+@\S+\.\S+/.test(evt.target.value);
+    //     }
+
+    //     if (evt.target.name === "password") {
+    //         const isPasswordValid = evt.target.value.length > 6;
+    //         const passwordHasNumber = /\d{1}/.test(evt.target.value);
+    //         isFieldValid = isPasswordValid && passwordHasNumber;
+    //     }
+    //     console.log(isFieldValid);
+    //     if (isFieldValid) {
+    //         const newUserInfo = { ...user };
+    //         newUserInfo[evt.target.name] = evt.target.value;
+    //         setUser(newUserInfo);
+    //     }
+
+    // }
+
     const handleSubmit = (evt) => {
+        console.log("clicked");
 
         // console.log(user.email, user.password);
         if (newUser && user.email && user.password) {
@@ -79,7 +102,6 @@ const Login = () => {
 
     const handleResponse = (res, redirect) => {
         setUser(res);
-        console.log(user);
         setLoggedInUser(res);
         if (redirect) {
             navigate(from, { replace: true });
@@ -89,31 +111,34 @@ const Login = () => {
     return (
         <div className="login-module">
             <ToastContainer />
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} autoComplete="off">
                 <div className="login-box">
                     {newUser ?
                         <>
-                            <h4 className="fw-bold">Create an account</h4>
-                            <div className="input-field">
+                            <h4 className="fw-bold ms-1 mt-1">Create an account</h4>
+                            {/* <div className="input-field">
                                 <input type="text" className="form-control" id="firstName" placeholder="First Name" />
                             </div>
                             <div className="input-field">
                                 <input type="text" className="form-control" placeholder="Last Name" id="exampleInputLastName" />
-                            </div>
+                            </div> */}
+                            <FormInput type="text" id="firstName" name="firstName" placeholder="First Name" value={user.firstName} onChange={handleChange} errorMessage="First Name length must be 3 or higher!" pattern="^(?=(?:[^A-Za-z]*[A-Za-z]){3})(?![^\d~`?!^*¨ˆ;@=$%{}\[\]|\\\/<>#“.,]*[\d~`?!^*¨ˆ;@=$%{}\[\]|\\\/<>#“.,])\S+(?: \S+){0,2}$" />
+                            <FormInput type="text" id="lastName" name="lastName" placeholder="Last Name" value={user.lastName} onChange={handleChange} errorMessage="Last Name length must be 3 or higher!" pattern="^(?=(?:[^A-Za-z]*[A-Za-z]){3})(?![^\d~`?!^*¨ˆ;@=$%{}\[\]|\\\/<>#“.,]*[\d~`?!^*¨ˆ;@=$%{}\[\]|\\\/<>#“.,])\S+(?: \S+){0,2}$" />
                         </>
-                        : <h4 className="fw-bold">Login</h4>}
+                        : <h4 className="fw-bold ms-1">Login</h4>}
 
-                    <div className="input-field">
-                        <input type="email" className="form-control" id="email" name="email" value={user.email} onChange={handleChange} placeholder="Username or Email" />
+                    {/* <div className="input-field">
+                        <input type="email" className="form-control" id="email" name="email" value={user.email} onChange={handleChange} placeholder="Username or Email" autoComplete="off" />
                     </div>
                     <div className="input-field">
                         <input type="password" className="form-control" name="password" value={user.password} onChange={handleChange} placeholder="Password" id="password" />
-                    </div>
+                    </div> */}
+                    <FormInput type="email" id="email" name="email" placeholder="Username or Email" value={user.email} onChange={handleChange} errorMessage='It should be a valid email address!' />
+                    <FormInput type="password" id="password" name="password" placeholder="Password" value={user.password} onChange={handleChange} errorMessage='Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!' pattern="^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@_#$%^&*])[a-zA-Z0-9!@_#$%^&*]{8,20}$" />
                     {
                         newUser &&
-                        <div className="input-field">
-                            <input type="password" className="form-control" placeholder="Confirm Password" id="exampleInputConfirmPassword" />
-                        </div>
+
+                        <FormInput type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" value={user.confirmPassword} onChange={handleChange} errorMessage="Passwords don't match!" pattern={user.password} />
 
                     }
                     {newUser ? ''

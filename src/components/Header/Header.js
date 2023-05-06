@@ -14,7 +14,7 @@ const Header = () => {
 
     return (
         <Container style={{ paddingInline: '61px' }}>
-            <Navbar expand="lg" className="pt-4 text-primary ">
+            <Navbar expand="lg" className={`pt-4 text-primary ${location.pathname.includes("/search") && 'bottom-border'}`}>
                 <Navbar.Brand as={Link} to="/" style={{ marginRight: '80px' }}>
                     <img
                         src={logo}
@@ -55,10 +55,10 @@ const Header = () => {
                                 ?
                                 <>
                                     {/* <p style={{ display: 'inline', color: 'red', marginRight: '15px' }}>Welcome {loggedInUser.displayName}</p> */}
-                                    <Nav.Link to="#" className="login-btn" onClick={() => setLoggedInUser({})}>Log out</Nav.Link>
+                                    <Nav.Link to="#" className="login-btn ms-4" onClick={() => setLoggedInUser({})}>Log out</Nav.Link>
                                 </>
                                 :
-                                <Nav.Link as={Link} to="/login" className="login-btn">Login</Nav.Link>
+                                <Nav.Link as={Link} to="/login" className="login-btn ms-4">Login</Nav.Link>
                         }
                     </Nav>
                 </Navbar.Collapse>

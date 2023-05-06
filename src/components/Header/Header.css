@@ -1,3 +1,7 @@
+.bottom-border {
+  border-bottom: 1px solid #D1D1D1 !important;
+}
+
 /* Search bar */
 
 .navBarSearchForm {
@@ -66,7 +70,16 @@
   border-radius:5px;
   font-weight: 500;
   color: #000000 !important;
+  background: #f9a51a;
+  overflow-x: auto;
+  white-space: nowrap;
 }
+
+.login-btn:hover {
+  background: #da8a06;
+}
+
+
 
 .mr-50 {
   margin-right: 50px;

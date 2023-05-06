@@ -18,7 +18,8 @@ const Destinations = () => {
                 <div style={{ marginLeft: '121px' }} >
                     <h1 className="text-white font-link">COX'S BAZAR</h1>
                     <p className="text-white mb-4">Cox's Bazar is a city, fishing port, tourism centre and <br /> district headquarters in southeastern Bangladesh. It is <br />famous mostly for its long natural sandy beach and it...</p>
-                    <button type="button" className="btn px-4">Booking<FontAwesomeIcon icon={faArrowRight} className="ms-2" /></button>
+                    {/* <button type="button" className="btn px-4">Booking<FontAwesomeIcon icon={faArrowRight} className="ms-2" /></button> */}
+                    <Link to="/booking" state={{ from: "Cox's Bazar" }} className="booking-btn">Booking<FontAwesomeIcon icon={faArrowRight} className="ms-2 " /></Link>
                 </div>
             </div>
 

@@ -5,11 +5,14 @@ import hotelTwo from '../../resources/Image/Rectangle 27.png';
 import hotelThree from '../../resources/Image/Rectangle 28.png';
 import googleMap from '../../resources/Image/map.png';
 import star from '../../resources/Icon/star_1_.png'
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import MapSection from '../Map/Map';
 
 const Search = () => {
     const params = useParams();
+    const location = useLocation();
+
+    console.log(location.pathname.includes("/search"));
 
     console.log(params);
 
@@ -36,15 +39,13 @@ const Search = () => {
 
     }
 
-    useEffect(() => {
-        console.log(destinationLatLng());
-    }, [])
+
 
     return (
-        <section className="d-flex border-primary justify-content-around ">
+        <section className="search-for-hotels">
             <div className="hotels w-50">
-                <p>252 stays Apr 13-17 3 guests</p>
-                <h4 className="fw-bold">Stay in {params?.place}</h4>
+                <p className='mt-4'>252 stays Apr 13-17 3 guests</p>
+                <h4 className="fw-bold mb-4">Stay in {params?.place}</h4>
                 <div className="d-flex hotel-info align-items-center mb-5">
                     <img src={hotelOne} alt="hotel_one" className="hotel-pic me-4" />
                     <div>
