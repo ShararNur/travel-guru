@@ -13,7 +13,7 @@ import CoxsBazar from '../Places/CoxsBazar';
 
 const Destinations = () => {
     return (
-        <div className="place-section d-md-flex justify-content-center pt-5 flex-wrap ">
+        <div className="place-section d-md-flex justify-content-center flex-wrap ">
             <div className="place-info">
                 <div style={{ marginLeft: '121px' }} >
                     <h1 className="text-white font-link">COX'S BAZAR</h1>

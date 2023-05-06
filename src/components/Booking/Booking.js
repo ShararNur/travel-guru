@@ -45,7 +45,7 @@ const Booking = () => {
 
 
     return (
-        <div className="booking d-md-flex pt-5">
+        <div className="booking d-md-flex">
             <div className="place-info">
                 <div style={{ maxWidth: '505px' }} >
                     <h1 className="text-white font-link text-uppercase">{state?.from}</h1>
