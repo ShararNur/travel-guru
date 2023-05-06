@@ -50,12 +50,12 @@ const Header = () => {
                         <Nav.Link to="#" className="px-4">Destination</Nav.Link>
                         <Nav.Link to="#" className="px-4">Blog</Nav.Link>
                         <Nav.Link to="#" className="px-4">Contact</Nav.Link>
+                        {/* {console.log(loggedInUser)}; */}
                         {
                             loggedInUser.success
                                 ?
                                 <>
-                                    {/* <p style={{ display: 'inline', color: 'red', marginRight: '15px' }}>Welcome {loggedInUser.displayName}</p> */}
-                                    <Nav.Link to="#" className="login-btn ms-4" onClick={() => setLoggedInUser({})}>Log out</Nav.Link>
+                                    {location.pathname.includes('/search') ? <p className='display-name'>{loggedInUser.displayName}</p> : <Nav.Link to="#" className="login-btn ms-4" onClick={() => setLoggedInUser({})}>Log out</Nav.Link>}
                                 </>
                                 :
                                 <Nav.Link as={Link} to="/login" className="login-btn ms-4">Login</Nav.Link>

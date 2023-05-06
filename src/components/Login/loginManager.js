@@ -9,11 +9,12 @@ export const initializeLoginFramework = () => {
 
 // Create user with Email & Password
 
-export const createUserWithEmailAndPass = (name, email, password) => {
+export const createUserWithEmailAndPass = (firstName, lastName, email, password) => {
     const auth = getAuth();
     return createUserWithEmailAndPassword(auth, email, password)
         .then((res) => {
             // Signed in 
+            const name = `${firstName + ' ' + lastName}`;
             const newUserInfo = res.user;
             newUserInfo.error = '';
             newUserInfo.success = true;

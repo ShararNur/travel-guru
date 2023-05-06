@@ -69,7 +69,7 @@ const Login = () => {
 
         // console.log(user.email, user.password);
         if (newUser && user.email && user.password) {
-            createUserWithEmailAndPass(user.name, user.email, user.password)
+            createUserWithEmailAndPass(user.firstName, user.lastName, user.email, user.password)
                 .then(res => {
                     console.log(res);
                     toast.success("Signed up successfully!")

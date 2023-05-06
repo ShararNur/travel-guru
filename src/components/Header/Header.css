@@ -71,7 +71,6 @@
   font-weight: 500;
   color: #000000 !important;
   background: #f9a51a;
-  overflow-x: auto;
   white-space: nowrap;
 }
 
@@ -94,6 +93,12 @@
 }
 .ml-auto.header-nav2.navbar-nav a {
   color: #fff;
+}
+
+.display-name {
+  font-weight: 700;
+  margin-bottom: 0px;
+  margin-left: 10px;
 }
 
 
