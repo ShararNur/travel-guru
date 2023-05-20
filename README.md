@@ -11,6 +11,7 @@
 ### Technologies -
 
 -   ReactJS
+-   Swiper
 -   Bootstrap
 -   React Router
 -   Context API
