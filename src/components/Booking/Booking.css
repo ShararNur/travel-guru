@@ -1,15 +1,21 @@
 .booking{
-    width: 83.2%;
+    /* width: 83.2%; */
     display: flex !important;
     justify-content: space-between;
     margin-inline: auto;
     margin-top: 100px;
 }
 
+.place-info {
+    max-width: 505px;
+    
+}
+
 .booking-panel{
     width: 470px; 
     /* height: 427px;  */
     border-radius:5px;
+    margin-top: -20px;
   }
 
 .booking-panel input{
@@ -39,7 +45,7 @@
     color: #bf1650;
   }
   
-  .booking-panel span::before {
+.booking-panel span::before {
     display: inline;
     content: "⚠ ";
 }

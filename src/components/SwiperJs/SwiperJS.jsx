@@ -2,24 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import locations from '../FakeData';
-import LocationItem from './LocationItem';
+import LocationItem from '../Home/LocationItem';
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
-import './Home.css'
+import './swiperJS.css'
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { useNavigate } from 'react-router-dom';
 
 
-const Home = () => {
-    let navigate = useNavigate();
+const SwiperJS = () => {
     const [slideIndex, setSlideIndex] = useState(0);
     const [booking, setBooking] = useState({});
-
 
     useEffect(() => {
         const activeItem = locations.find((location, index) => index.toString() === slideIndex.toString())
@@ -35,16 +30,16 @@ const Home = () => {
         }
     }
     return (
-        <Container className="custom-margin">
+        <Container className="pr-0 mt-5 pt-5">
             <Row>
-                <Col sm={4} xl={5}>
-                    <div className="bg-transparent px-0 mt-3">
+                <Col sm={4} xl={4}>
+                    <div className="bg-transparent px-0">
                         <h1 className="font-weight-bold">{booking.name}</h1>
-                        <p className='text-white'>{booking.description?.slice(0, 150)} ...</p>
-                        <Button className="px-4 py-2 mt-2" variant="warning" onClick={() => navigate(`/booking/${booking.name}`)}>Booking <FontAwesomeIcon icon={faArrowRight} className="ms-2 " /> </Button>
+                        <p>{booking.description?.slice(0, 150)} ...</p>
+                        <Button className="px-4 py-2" variant="warning">Booking </Button>
                     </div>
                 </Col>
-                <Col sm={8} xl={7}>
+                <Col sm={8} xl={8}>
                     <Swiper
                         spaceBetween={15}
                         centeredSlides={1}
@@ -70,8 +65,9 @@ const Home = () => {
                     </Swiper>
                 </Col>
             </Row>
+
         </Container>
     );
 };
 
-export default Home;
+export default SwiperJS;

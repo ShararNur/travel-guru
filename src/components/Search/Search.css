@@ -4,11 +4,11 @@
 }
 
 
-.search-for-hotels {
+/* .search-for-hotels {
     display: flex;
     justify-content: space-around;
     padding-inline: 5rem;
-}
+} */
 
 .hotel-pic {
     width: 270px;
@@ -48,6 +48,5 @@
     width: 500px;
     margin-top: 80px;
 }
-
 
 

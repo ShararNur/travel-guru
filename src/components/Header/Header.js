@@ -6,6 +6,7 @@ import './Header.css';
 import searchIcon from './../../resources/Icon/search.svg'
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { UserContext } from '../../App';
+import { handleSignOut } from '../Login/loginManager';
 
 
 const Header = () => {
@@ -13,7 +14,7 @@ const Header = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     return (
-        <Container style={{ paddingInline: '61px' }}>
+        <Container>
             <Navbar expand="lg" className={`pt-4 text-primary ${location.pathname.includes("/search") && 'bottom-border'}`}>
                 <Navbar.Brand as={Link} to="/" style={{ marginRight: '80px' }}>
                     <img
@@ -55,7 +56,7 @@ const Header = () => {
                             loggedInUser.success
                                 ?
                                 <>
-                                    {location.pathname.includes('/search') ? <p className='display-name'>{loggedInUser.displayName}</p> : <Nav.Link to="#" className="login-btn ms-4" onClick={() => setLoggedInUser({})}>Log out</Nav.Link>}
+                                    {location.pathname.includes('/search') ? <p className='display-name'>{loggedInUser.displayName}</p> : <Nav.Link to="#" className="login-btn ms-4" onClick={() => setLoggedInUser(handleSignOut)}>Log out</Nav.Link>}
                                 </>
                                 :
                                 <Nav.Link as={Link} to="/login" className="login-btn ms-4">Login</Nav.Link>

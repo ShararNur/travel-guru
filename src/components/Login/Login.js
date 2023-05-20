@@ -5,8 +5,8 @@ import { FcGoogle } from "react-icons/fc";
 import { useState } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { useLocation, useNavigate } from 'react-router-dom';
-import { createUserWithEmailAndPass, initializeLoginFramework, signInWithEmailAndPass } from './loginManager';
+import { useLocation, useNavigate, Navigate } from 'react-router-dom';
+import { createUserWithEmailAndPass, handleFbSignIn, handleGoogleSignIn, handleSignOut, initializeLoginFramework, signInWithEmailAndPass } from './loginManager';
 import { UserContext } from '../../App';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -44,28 +44,8 @@ const Login = () => {
         // console.log(user);
     }
 
-    // const handleBlur = (evt) => {
-    //     let isFieldValid = true;
-    //     if (evt.target.name === "email") {
-    //         isFieldValid = /\S+@\S+\.\S+/.test(evt.target.value);
-    //     }
-
-    //     if (evt.target.name === "password") {
-    //         const isPasswordValid = evt.target.value.length > 6;
-    //         const passwordHasNumber = /\d{1}/.test(evt.target.value);
-    //         isFieldValid = isPasswordValid && passwordHasNumber;
-    //     }
-    //     console.log(isFieldValid);
-    //     if (isFieldValid) {
-    //         const newUserInfo = { ...user };
-    //         newUserInfo[evt.target.name] = evt.target.value;
-    //         setUser(newUserInfo);
-    //     }
-
-    // }
 
     const handleSubmit = (evt) => {
-        console.log("clicked");
 
         // console.log(user.email, user.password);
         if (newUser && user.email && user.password) {
@@ -80,7 +60,6 @@ const Login = () => {
         if (!newUser && user.email && user.password) {
             signInWithEmailAndPass(user.email, user.password)
                 .then(res => {
-                    console.log(res);
 
                     if (res?.error) {
                         toast.error(res.error)
@@ -107,6 +86,27 @@ const Login = () => {
             navigate(from, { replace: true });
         }
     }
+
+    const googleSignIn = () => {
+        handleGoogleSignIn()
+            .then(res => {
+                handleResponse(res, true);
+            })
+    }
+
+    const fbSignIn = () => {
+        handleFbSignIn()
+            .then(res => {
+                handleResponse(res, true);
+            })
+    }
+
+
+
+
+    // if (currentUser) {
+    //     return <Navigate to='/' />
+    // }
 
     return (
         <div className="login-module">
@@ -166,11 +166,11 @@ const Login = () => {
             <p className="or my-4" ><span className="or-span">Or</span></p>
 
             <div className="d-grid gap-2 col-4 mx-auto">
-                <div className="buttons rounded-pill py-2">
+                <div className="buttons rounded-pill py-2" onClick={fbSignIn}>
                     <FaFacebook className="fb-icon ms-2" fill="#3076FF" />
                     <span className="ms-6"> Continue with Facebook</span>
                 </div>
-                <div className="buttons rounded-pill py-2">
+                <div className="buttons rounded-pill py-2" onClick={googleSignIn}>
                     <FcGoogle className="fb-icon ms-2" />
                     <span className="ms-6"> Continue with Google</span>
                 </div>

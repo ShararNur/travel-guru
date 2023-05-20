@@ -7,47 +7,17 @@
   } */
 
   .google-map {
-    width: 100%;
-    height: 60vh;
+    width: 500px;
+    height: 702px;
     border-radius: 13px;
     overflow: hidden;
 
   }
 
-
-  .pin {
-    display: flex;
-    align-items: center;
-    width: 180px;
-    color: var(--main-blue);
-  }
-  
-  .pin-icon {
-    font-size: 4rem;
-  }
-  
-  .pin-text {
-    font-size: 1.3em;
-  }
-  
-
   
   @media screen and (min-width: 799px) {
     .google-map {
-      height: 93.7vh;
-      /* height: 702px; */
-    }
-/*   
-    .map-h2 {
-      font-size: 1.3rem;
-      font-weight: 400;
-    } */
-  
-    .pin {
-      width: 15vw;
-    }
-  
-    .pin-icon {
-      font-size: 10vw;
+    width: 32.6vw;
+    height: 98.4vh;
     }
   }
