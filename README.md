@@ -17,6 +17,6 @@
 -   Context API
 -   Google Map
 -   Firebase Authentication
--   Nelify
+-   Netlify
 
 [live demo](https://travel-guru-by-sharar.netlify.app) | [github repository](https://github.com/ShararNur/travel-guru)
