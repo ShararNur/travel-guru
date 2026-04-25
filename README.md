@@ -1,22 +1,67 @@
-# 🚀 [Travel Guru : hotel booking application](https://travel-guru-by-sharar.netlify.app)
+# 🚀 Travel Guru — Scalable Hotel Booking Platform
 
-[<img src="./.github/tg-thumbnail.jpg" alt="" width="100%">](https://travel-guru-by-sharar.netlify.app)
+🔗 Live Demo: https://travel-guru-by-sharar.netlify.app
+📂 Repository: https://github.com/ShararNur/travel-guru
 
-### Features -
+---
 
--   User can select destination and make booking
--   Google map will mark the selected destination
--   Available hotels will be shown for that destination and so on.
+## 🧠 Overview
 
-### Technologies -
+Travel Guru is a location-based hotel booking platform that allows users to explore destinations, view available accommodations, and complete bookings through an interactive and map-driven experience.
 
--   ReactJS
--   Swiper
--   Bootstrap
--   React Router
--   Context API
--   Google Map
--   Firebase Authentication
--   Netlify
+This project demonstrates frontend architecture, state management, and third-party API integration in a real-world booking flow.
 
-[live demo](https://travel-guru-by-sharar.netlify.app) | [github repository](https://github.com/ShararNur/travel-guru)
+---
+
+## ✨ Key Features
+
+* 📍 **Location-based search** with Google Maps integration
+* 🏨 **Dynamic hotel listing** based on selected destination
+* 🔐 **Authentication system** using Firebase
+* 🔄 **Client-side routing** for seamless navigation
+* 🎯 **Interactive UI/UX** for booking flow
+
+---
+
+## 🏗 Architecture & Engineering Decisions
+
+* Structured using **component-based architecture** for scalability
+* Managed global state using **React Context API**
+* Implemented **route-based code splitting** for performance
+* Integrated external APIs (Google Maps, Firebase) with modular abstraction
+* Designed reusable UI components for maintainability
+
+---
+
+## 🛠 Tech Stack
+
+**Frontend**
+
+* React.js
+* React Router
+* Context API
+
+**UI & Styling**
+
+* Bootstrap
+* Swiper.js
+
+**Services & APIs**
+
+* Firebase Authentication
+* Google Maps API
+
+**Deployment**
+
+* Netlify
+
+---
+
+## 🧠 Key Learnings
+
+* Handling third-party integrations (Maps, Auth)
+* Managing global state in medium-scale apps
+* Structuring scalable React applications
+* Designing user-friendly booking experiences
+
+---
